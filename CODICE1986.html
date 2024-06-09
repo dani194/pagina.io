@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campos de Códigos y Contraseñas</title>
+    <link rel="stylesheet" href="css/pagina.css">
+    
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-group">
+            <div class="input-group-title">CODICE FISCALE DANIEL OSVALDO</div>
+            <input type="text" id="code1" placeholder="Ingrese Código 1">
+            <button onclick="copyToClipboard('code1')">Copiar</button>
+        </div>
+        
+        <div class="input-group">
+            <div class="input-group-title">CODICE FISCALE DANIEL MATIAS</div>
+            <input type="text" id="code2" placeholder="Ingrese Código 2">
+            <button onclick="copyToClipboard('code2')">Copiar</button>
+        </div>
+        
+        <div class="input-group">
+            <div class="input-group-title">IBAN</div>
+            <label for="code3">Fineco</label>
+            <input type="text" id="code3" placeholder="Ingrese Código 3">
+            <button onclick="copyToClipboard('code3')">Copiar</button>
+        </div>
+        
+        
+        <div class="input-group">
+            <div class="input-group-title">IBAN</div>
+            <label for="code5">Poste Pay</label>
+            <input type="text" id="code5" placeholder="Ingrese Código 5">
+            <button onclick="copyToClipboard('code5')">Copiar</button>
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-title">PASAPORTE</div>
+            <label for="code4">N DANIEL OSVALDO</label>
+            <input type="text" id="code4" placeholder="Ingrese Código 4">
+            <button onclick="copyToClipboard('code4')">Copiar</button>
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-title">PASAPORTE</div>
+            <label for="code4">N DANIEL MATIAS</label>
+            <input type="text" id="code4" placeholder="Ingrese Código 4">
+            <button onclick="copyToClipboard('code4')">Copiar</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Cargar los valores guardados desde localStorage
+            document.getElementById('code1').value = localStorage.getItem('code1') || '';
+            document.getElementById('code2').value = localStorage.getItem('code2') || '';
+            document.getElementById('code3').value = localStorage.getItem('code3') || '';
+            document.getElementById('code4').value = localStorage.getItem('code4') || '';
+            document.getElementById('code5').value = localStorage.getItem('code5') || '';
+
+            // Añadir eventos de guardado para cada campo
+            document.getElementById('code1').addEventListener('input', () => {
+                localStorage.setItem('code1', document.getElementById('code1').value);
+            });
+            document.getElementById('code2').addEventListener('input', () => {
+                localStorage.setItem('code2', document.getElementById('code2').value);
+            });
+            document.getElementById('code3').addEventListener('input', () => {
+                localStorage.setItem('code3', document.getElementById('code3').value);
+            });
+            document.getElementById('code4').addEventListener('input', () => {
+                localStorage.setItem('code4', document.getElementById('code4').value);
+            });
+            document.getElementById('code5').addEventListener('input', () => {
+                localStorage.setItem('code5', document.getElementById('code5').value);
+            });
+        });
+
+        function copyToClipboard(elementId) {
+            const inputElement = document.getElementById(elementId);
+            inputElement.select();
+            inputElement.setSelectionRange(0, 99999); // Para dispositivos móviles
+            navigator.clipboard.writeText(inputElement.value)
+                .then(() => {
+                    alert('Texto copiado: ' + inputElement.value);
+                })
+                .catch(err => {
+                    alert('Hubo un error al copiar: ' + err);
+                });
+        }
+    </script>
+</body>
+</html>
+<body>
+    <div class="menu-container">
+        <h1>Subir Documentos PDF</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <div class="input-group">
+                <label for="pdfTitle">Título del Documento:</label>
+                <input type="text" id="pdfTitle" name="pdfTitle" placeholder="Ingrese el título del documento">
+            </div>
+            <div class="input-group">
+                <label for="pdfFile">Seleccionar PDF:</label>
+                <input type="file" id="pdfFile" name="pdfFile" accept=".pdf">
+            </div>
+            <button type="submit">Subir PDF</button>
+        </form>
+
+        <h2>Documentos Subidos</h2>
+        <div id="pdfGallery" class="pdf-gallery">
+            <!-- Aquí se mostrarán las miniaturas de los PDFs subidos -->
+        </div>
+    </div>
+
+    <script src="js/page.js"></script>
+</body>
+</html>

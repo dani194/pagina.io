@@ -1,0 +1,118 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Cambiado de center a flex-start para que los elementos se alineen al principio */
+    min-height: 100vh;
+    box-sizing: border-box; /* Asegura que el padding y border se incluyan en el ancho y alto total de los elementos */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px; /* Añadir un margen para separar el contenedor del resto */
+    box-sizing: border-box; /* Asegura que el padding y border se incluyan en el ancho y alto total del contenedor */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f1f8e9;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Asegura que el padding y border se incluyan en el ancho y alto total del grupo de entrada */
+}
+
+h1, h2 {
+    color: #00796b;
+}
+
+label {
+    font-size: 14px;
+    color: #004d40;
+}
+
+input[type="text"],
+input[type="file"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #b2dfdb;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el padding y border se incluyan en el ancho y alto total del campo de entrada */
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+    border-color: #00796b;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #00796b;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    align-self: flex-start;
+}
+
+button:hover {
+    background-color: #004d40;
+    transform: scale(1.05);
+}
+
+.pdf-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pdf-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e0f7fa;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100px;
+    text-align: center;
+}
+
+.pdf-item img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.pdf-item-title {
+    font-size: 12px;
+    color: #00796b;
+    margin-top: 5px;
+}
